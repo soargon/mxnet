@@ -59,7 +59,7 @@ void* PooledStorageManager<DeviceStorage>::Alloc(size_t size) {
         ReleaseAll();
       }
     }
-    LOG(FATAL) << "Memory allocation failed.";
+    LOG(FATAL) << "Memory allocation failed. Used: " << used_memory_ << ", new alloc:" << size;
     return NULL;
   } else {
     auto&& reuse_pool = reuse_it->second;
